@@ -161,10 +161,10 @@ for epoch in range(start_epoch, opt.niter + opt.niter_decay + 1):
         # loss_G.backward()
         # model.module.optimizer_G.step()
         #
-        # # update discriminator weights
-        # model.module.optimizer_D.zero_grad()
-        # loss_D.backward()
-        # model.module.optimizer_D.step()
+        # update discriminator weights
+        model.module.optimizer_D.zero_grad()
+        loss_D.backward()
+        model.module.optimizer_D.step()
 
         #call(["nvidia-smi", "--format=csv", "--query-gpu=memory.used,memory.free"]) 
 
